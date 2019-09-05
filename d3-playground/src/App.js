@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
-// import BarChartHTML from './components/BarChart1/HTML/BarChart';
-// import BarChartSVG from './components/BarChart1/SVG/BarChart';
-// import BarChartVertical from './components/BarChart1/Vertical/BarChart';
-import BarChartPolished from './components/BarChart1/polished/BarChart';
+import BarChart1 from './components/BarChart1';
+import Circles from './components/Circles';
 
 function App() {
   return (
@@ -14,10 +12,10 @@ function App() {
       </div>
       <div className="App-body">
         <div className="chart">
-          {/* <BarChartHTML /> */}
-          {/* <BarChartSVG /> */}
-          {/* <BarChartVertical /> */}
-          <BarChartPolished />
+          <Circles />
+        </div>
+        <div className="chart">
+          <BarChart1 />
         </div>
       </div>
     </>

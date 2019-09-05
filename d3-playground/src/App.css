@@ -1,4 +1,3 @@
-
 .App-header {
   background-color: #282c34;
   height: 100px;
@@ -16,8 +15,5 @@
 
 .chart {
   width: 100%;
-  height: 500px;
-  border: 1px solid red;
+  min-height: 500px;
 }
-
-
