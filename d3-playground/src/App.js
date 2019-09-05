@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import BarChart1 from './components/BarChart1';
 import Circles from './components/Circles';
+import CensusBarChart from './components/transitions/censusBarChart';
+import MovingLetters from './components/MovingLetters';
 
 function App() {
   return (
@@ -11,6 +13,12 @@ function App() {
         <h5>Home</h5>
       </div>
       <div className="App-body">
+        <div className="chart">
+          <MovingLetters />
+        </div>
+        <div className="chart">
+          <CensusBarChart />
+        </div>
         <div className="chart">
           <Circles />
         </div>
