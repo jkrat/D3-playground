@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import { scaleLinear, scaleOrdinal, scaleBand } from 'd3-scale';
 import './style.css';
 
-var data = [
+const data = [
   { name: 'A', value: 0.08167 },
   { name: 'B', value: 0.01492 },
   { name: 'C', value: 0.02782 },
@@ -89,7 +89,7 @@ const BarChart1 = () => {
       .style('text-anchor', 'end')
       .text('Frequency');
 
-    var bar = chart
+    chart
       .selectAll('.bar')
       .data(data)
       .enter()

@@ -4,22 +4,22 @@ import { scaleLinear, scaleOrdinal, scaleBand } from 'd3-scale';
 import './style.css';
 import { data } from './data';
 
-var margin = { top: 20, right: 40, bottom: 10, left: 40 },
+let margin = { top: 20, right: 40, bottom: 10, left: 40 },
   width = 960,
   height = 250 - margin.top - margin.bottom;
 
-var format = d3.format('.1%'),
+let format = d3.format('.1%'),
   age;
 
-var x = d3.scaleLinear().range([0, width]);
+let x = d3.scaleLinear().range([0, width]);
 
-var y = d3
+let y = d3
   .scaleBand()
   .range([0, height])
   .paddingInner(0.1)
   .paddingOuter(0.1);
 
-var xAxis = d3
+let xAxis = d3
   .axisTop(x)
   .tickSize(-height - margin.bottom)
   .tickFormat(format);
@@ -32,7 +32,7 @@ let ages = d3.keys(states[0]).filter(function(key) {
 
 const CensusBarChart = () => {
   useEffect(() => {
-    var svg = d3
+    let svg = d3
       .select('#Popchart')
       .append('svg')
       .attr('width', width + margin.left + margin.right)
@@ -50,7 +50,7 @@ const CensusBarChart = () => {
       .attr('class', 'domain')
       .attr('y2', height);
 
-    var menu = d3.select('#menu select').on('change', change);
+    let menu = d3.select('#menu select').on('change', change);
 
     menu
       .selectAll('option')
@@ -65,7 +65,7 @@ const CensusBarChart = () => {
 
     redraw();
 
-    var altKey;
+    let altKey;
 
     d3.select(window)
       .on('keydown', function() {
@@ -82,7 +82,7 @@ const CensusBarChart = () => {
     }
 
     function redraw() {
-      var age1 = menu.property('value'),
+      let age1 = menu.property('value'),
         top = states
           .sort(function(a, b) {
             return b[age1] - a[age1];
@@ -95,13 +95,11 @@ const CensusBarChart = () => {
         })
       );
 
-      console.log(y.domain);
-
-      var bar = svg.selectAll('.bar').data(top, function(d) {
+      let bar = svg.selectAll('.bar').data(top, function(d) {
         return d.State;
       });
 
-      var barEnter = bar
+      let barEnter = bar
         .enter()
         .insert('g', '.axis')
         .attr('class', 'bar')
@@ -149,7 +147,7 @@ const CensusBarChart = () => {
       x.domain([0, top[0][(age = age1)]]);
 
       if (bar.length > 0) {
-        var barUpdate = d3
+        let barUpdate = d3
           .transition(bar)
           .attr('transform', function(d) {
             return 'translate(0,' + (d.y0 = y(d.State)) + ')';
@@ -169,7 +167,7 @@ const CensusBarChart = () => {
             return format(d[age]);
           });
 
-        var barExit = d3
+        let barExit = d3
           .transition(bar.exit())
           .attr('transform', function(d) {
             return 'translate(0,' + (d.y0 + height) + ')';

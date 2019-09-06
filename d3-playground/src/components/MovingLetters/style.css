@@ -1,3 +1,8 @@
-circle {
-  fill: steelblue;
+.movingText {
+  position: relative;
+  margin: 17px 0;
+  min-height: 33px;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.5;
 }
