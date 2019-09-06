@@ -2,22 +2,25 @@ import React, { useEffect } from 'react';
 import * as d3 from 'd3';
 import './style.css';
 
-let width = 960;
+let width = 30;
 
 const Circles = () => {
   useEffect(() => {
     var chart = d3
       .select('#MovingLetters')
-      .attr('width', 200)
+      .attr('width', width)
       .attr('height', 33)
       .attr('viewBox', `0 -20 ${width} 33`);
 
+      while (true){
     chart
       .selectAll('text')
       .data(randomLetters())
       .join('text')
       .attr('x', (d, i) => i * 16)
       .text(d => d);
+
+      
 
     function randomLetters() {
       return d3
