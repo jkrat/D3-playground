@@ -4,6 +4,8 @@ import BarChart1 from './components/BarChart1';
 import Circles from './components/Circles';
 import CensusBarChart from './components/transitions/censusBarChart';
 import MovingLetters from './components/MovingLetters';
+import BarChartTrans from './components/transitions/LearnBarChart';
+import LearnBarChart from './components/transitions/LearnBarChart';
 
 function App() {
   return (
@@ -14,10 +16,13 @@ function App() {
       </div>
       <div className="App-body">
         <div className="chart">
-          <MovingLetters />
+          <LearnBarChart />
         </div>
         <div className="chart">
           <CensusBarChart />
+        </div>
+        <div className="chart">
+          <MovingLetters />
         </div>
         <div className="chart">
           <Circles />

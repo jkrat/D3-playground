@@ -1,3 +1,4 @@
+/* eslint-disable */
 var margin = { top: 20, right: 40, bottom: 10, left: 40 },
   width = 960,
   height = 250 - margin.top - margin.bottom;
