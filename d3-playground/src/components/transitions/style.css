@@ -14,19 +14,19 @@ svg {
   fill: white;
 }
 
-.axis {
+.Caxis {
   shape-rendering: crispEdges;
 }
 
-.axis path {
+.Caxis path {
   stroke: none;
 }
 
-.x.axis line {
+.x.Caxis line {
   stroke: #fff;
   stroke-opacity: 0.8;
 }
 
-.y.axis path {
+.y.Caxis path {
   stroke: black;
 }

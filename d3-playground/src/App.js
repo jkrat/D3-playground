@@ -16,10 +16,10 @@ function App() {
       </div>
       <div className="App-body">
         <div className="chart">
-          <LearnBarChart />
+          <CensusBarChart />
         </div>
         <div className="chart">
-          <CensusBarChart />
+          <LearnBarChart />
         </div>
         <div className="chart">
           <MovingLetters />
