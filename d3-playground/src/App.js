@@ -7,6 +7,7 @@ import MovingLetters from './components/MovingLetters';
 import AnimatedVerticalBar from './components/transitions/VerticalBar';
 import HourHeatMap from './components/HeatMap/HourHeatMap';
 import PieChart1 from './components/PieChart/PieChart1';
+import DonutChart1 from './components/PieChart/DonutChart';
 
 function App() {
   return (
@@ -17,12 +18,15 @@ function App() {
       </div>
       <div className="App-body">
         <div className="chart">
+          <DonutChart1 />
+        </div>
+        <div className="chart">
           <PieChart1 />
         </div>
-        {/* <div className="chart">
+        <div className="chart">
           <HourHeatMap />
-        </div> */}
-        {/* <div className="chart">
+        </div>
+        <div className="chart">
           <AnimatedHorizontalBar />
         </div>
         <div className="chart">
@@ -36,7 +40,7 @@ function App() {
         </div>
         <div className="chart">
           <BarChart1 />
-        </div> */}
+        </div>
       </div>
     </>
   );
