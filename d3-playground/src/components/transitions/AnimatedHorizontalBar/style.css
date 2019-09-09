@@ -14,6 +14,10 @@ svg {
   fill: white;
 }
 
+.label {
+  fill: black;
+}
+
 .Caxis {
   shape-rendering: crispEdges;
 }
@@ -27,6 +31,6 @@ svg {
   stroke-opacity: 0.8;
 }
 
-.y.Caxis path {
-  stroke: black;
+.Caxis line {
+  stroke: #000;
 }

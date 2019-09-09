@@ -67,17 +67,15 @@ const LearnBarChart = () => {
     chart
       .append('g')
       .attr('class', 'x axis')
-      .attr('transform', `translate(0,${height})`)
-      .call(xAxis);
+      .attr('transform', `translate(0,${height})`);
 
     chart
       .append('g')
       .attr('class', 'y axis')
-      .call(yAxis)
       .append('text')
       .attr('transform', 'rotate(-90)')
       .attr('y', 6)
-      .attr('dy', '.71em')
+      .attr('dy', '-3.5em')
       .style('text-anchor', 'end')
       .text('Frequency');
 
@@ -140,11 +138,11 @@ const LearnBarChart = () => {
         )
     );
 
-    d3.transition(chart)
+    d3.transition(t)
       .select('.x.axis')
       .call(xAxis);
 
-    d3.transition(chart)
+    d3.transition(t)
       .select('.y.axis')
       .call(yAxis);
   }

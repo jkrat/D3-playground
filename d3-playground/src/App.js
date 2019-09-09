@@ -2,10 +2,9 @@ import React from 'react';
 import './App.css';
 import BarChart1 from './components/BarChart1';
 import Circles from './components/Circles';
-import CensusBarChart from './components/transitions/censusBarChart';
+import AnimatedHorizontalBar from './components/transitions/AnimatedHorizontalBar';
 import MovingLetters from './components/MovingLetters';
-import BarChartTrans from './components/transitions/LearnBarChart';
-import LearnBarChart from './components/transitions/LearnBarChart';
+import AnimatedVerticalBar from './components/transitions/VerticalBar';
 
 function App() {
   return (
@@ -16,10 +15,10 @@ function App() {
       </div>
       <div className="App-body">
         <div className="chart">
-          <CensusBarChart />
+          <AnimatedHorizontalBar />
         </div>
         <div className="chart">
-          <LearnBarChart />
+          <AnimatedVerticalBar />
         </div>
         <div className="chart">
           <MovingLetters />
