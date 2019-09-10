@@ -1,9 +1,9 @@
-#firstChart rect {
+#barChartSVG rect {
   fill: steelblue;
 }
 
-#firstChart text {
+#barChartSVG text {
   fill: white;
   font: 10px sans-serif;
-  text-anchor: middle;
+  text-anchor: end;
 }

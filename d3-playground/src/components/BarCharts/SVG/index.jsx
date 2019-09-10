@@ -1,33 +1,30 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
-import { scaleLinear } from 'd3-scale';
 import './style.css';
 
 const data = [4, 8, 15, 16, 23, 42, 29];
 
-const width = 420,
-  barHeight = 20;
+const width = 420;
+const barHeight = 20;
 
 const x = d3
   .scaleLinear()
   .domain([0, d3.max(data)])
   .range([0, width]);
 
-const BarChart1 = () => {
+const SVG = () => {
   useEffect(() => {
-    var chart = d3
+    const chart = d3
       .select('#barChartSVG')
       .attr('width', width)
       .attr('height', barHeight * data.length);
 
-    var bar = chart
+    const bar = chart
       .selectAll('g')
       .data(data)
       .enter()
       .append('g')
-      .attr('transform', function(d, i) {
-        return 'translate(0,' + i * barHeight + ')';
-      });
+      .attr('transform', (d, i) => `translate(0, ${i * barHeight})`);
 
     bar
       .append('rect')
@@ -36,17 +33,13 @@ const BarChart1 = () => {
 
     bar
       .append('text')
-      .attr('x', function(d) {
-        return x(d) - 3;
-      })
+      .attr('x', d => x(d) - 3)
       .attr('y', barHeight / 2)
       .attr('dy', '.35em')
-      .text(function(d) {
-        return d;
-      });
+      .text(d => d);
   });
 
   return <svg id="barChartSVG" />;
 };
 
-export default BarChart1;
+export default SVG;

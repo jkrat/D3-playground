@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
-import { scaleLinear } from 'd3-scale';
 import './style.css';
 
-var data = [
+const data = [
   { name: 'A', value: 0.08167 },
   { name: 'B', value: 0.01492 },
   { name: 'C', value: 0.02782 },
@@ -32,60 +31,45 @@ var data = [
   { name: 'Z', value: 0.00074 },
 ];
 
-const width = 780,
-  height = 500;
+const width = 780;
+const height = 500;
 
 const y = d3
   .scaleLinear()
-  .domain([
-    0,
-    d3.max(data, function(d) {
-      return d.value;
-    }),
-  ])
+  .domain([0, d3.max(data, d => d.value)])
   .range([height, 0]);
 
-const BarChart1 = () => {
+const Vertical = () => {
   useEffect(() => {
-    var chart = d3
+    const chart = d3
       .select('#barChartVertical')
       .attr('width', width)
       .attr('height', height);
 
-    var barWidth = width / data.length;
+    const barWidth = width / data.length;
 
-    var bar = chart
+    const bar = chart
       .selectAll('g')
       .data(data)
       .enter()
       .append('g')
-      .attr('transform', function(d, i) {
-        return 'translate(' + i * barWidth + ',0)';
-      });
+      .attr('transform', (d, i) => `translate(${i * barWidth} ,0)`);
 
     bar
       .append('rect')
-      .attr('y', function(d) {
-        return y(d.value);
-      })
-      .attr('height', function(d) {
-        return height - y(d.value);
-      })
+      .attr('y', d => y(d.value))
+      .attr('height', d => height - y(d.value))
       .attr('width', barWidth - 1);
 
     bar
       .append('text')
       .attr('x', barWidth / 2)
-      .attr('y', function(d) {
-        return y(d.value) + 3;
-      })
+      .attr('y', d => y(d.value) + 3)
       .attr('dy', '.75em')
-      .text(function(d) {
-        return d.value;
-      });
+      .text(d => d.value);
   });
 
   return <svg id="barChartVertical" />;
 };
 
-export default BarChart1;
+export default Vertical;

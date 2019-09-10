@@ -26,7 +26,7 @@ function gridData(size) {
   return data;
 }
 
-const Grid = ({ squares, dimensions, margin }) => {
+const InteractiveGrid = ({ squares, dimensions, margin }) => {
   const width = dimensions - margin * 2;
   const height = dimensions - margin * 2;
   const gridSize = Math.floor(width / squares);
@@ -72,4 +72,4 @@ const Grid = ({ squares, dimensions, margin }) => {
   return <svg id="createGrid" />;
 };
 
-export default Grid;
+export default InteractiveGrid;

@@ -29,10 +29,10 @@ const arcLabel = d3
   .innerRadius((Math.min(width, height) / 2) * 0.8)
   .outerRadius((Math.min(width, height) / 2) * 0.8);
 
-const PieChart1 = () => {
+const BasicPie = () => {
   useEffect(() => {
     const chart = d3
-      .select('#pieChart1')
+      .select('#BasicPie')
       .attr('viewBox', [-height, -(height / 2), height * 2, height]);
 
     chart
@@ -73,7 +73,7 @@ const PieChart1 = () => {
       );
   });
 
-  return <svg id="pieChart1" />;
+  return <svg id="BasicPie" />;
 };
 
-export default PieChart1;
+export default BasicPie;

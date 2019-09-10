@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
-import { scaleLinear, scaleOrdinal, scaleBand } from 'd3-scale';
 import './style.css';
 
 function rando() {

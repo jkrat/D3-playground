@@ -17,9 +17,9 @@ function selectType(layout) {
       return BarCharts;
     case 'Misc':
       return MiscCharts;
-    case 'grid':
+    case 'Grid':
       return GridCharts;
-    case 'Transitions':
+    case 'Transition':
       return Transitions;
     default:
       return null;
@@ -29,7 +29,7 @@ function selectType(layout) {
 const TypeSelect = ({ type, ...restProps }) => {
   const Type = selectType(type);
 
-  return <Type {...restProps} />;
+  return <>{type && <Type {...restProps} />}</>;
 };
 
 export default TypeSelect;

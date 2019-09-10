@@ -25,10 +25,10 @@ const arc = d3
   .innerRadius((Math.min(width, height) / 2) * 0.67)
   .outerRadius(Math.min(width, height) / 2 - 1);
 
-const DonutChart1 = () => {
+const BasicDonut = () => {
   useEffect(() => {
     const chart = d3
-      .select('#donutChart1')
+      .select('#BasicDonut')
       .attr('viewBox', [-487.5, -250, 975, 500]);
 
     chart
@@ -69,7 +69,7 @@ const DonutChart1 = () => {
       );
   });
 
-  return <svg id="donutChart1" />;
+  return <svg id="BasicDonut" />;
 };
 
-export default DonutChart1;
+export default BasicDonut;
