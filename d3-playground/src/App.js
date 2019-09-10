@@ -8,6 +8,7 @@ import AnimatedVerticalBar from './components/transitions/VerticalBar';
 import HourHeatMap from './components/HeatMap/HourHeatMap';
 import PieChart1 from './components/PieChart/PieChart1';
 import DonutChart1 from './components/PieChart/DonutChart';
+import Grid from './components/Grid';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       </div>
       <div className="App-body">
         <div className="chart">
+          <Grid squares={10} dimensions={440} margin={40} />
+        </div>
+        {/* <div className="chart">
           <DonutChart1 />
         </div>
         <div className="chart">
@@ -40,7 +44,7 @@ function App() {
         </div>
         <div className="chart">
           <BarChart1 />
-        </div>
+        </div> */}
       </div>
     </>
   );

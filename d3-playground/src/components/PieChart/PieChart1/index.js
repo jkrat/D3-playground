@@ -33,7 +33,7 @@ const PieChart1 = () => {
   useEffect(() => {
     const chart = d3
       .select('#pieChart1')
-      .attr('viewBox', [-487.5, -250, 975, 500]);
+      .attr('viewBox', [-height, -(height / 2), height * 2, height]);
 
     chart
       .append('g')
