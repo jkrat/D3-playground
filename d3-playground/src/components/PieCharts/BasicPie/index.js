@@ -5,10 +5,9 @@ import { data } from './data';
 
 const width = 500;
 const height = Math.min(width, 500);
-const arcs = d3
-  .pie()
-  .sort(null)
-  .value(d => d.value)(data);
+const pieGenerator = d3.pie();
+
+const arcs = pieGenerator.sort(null).value(d => d.value)(data);
 
 const color = d3
   .scaleOrdinal()
