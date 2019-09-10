@@ -42,7 +42,7 @@ const Grid = ({ squares, dimensions, margin }) => {
 
     const row = chart
       .selectAll('.row')
-      .data(data)
+      .data(data, d => d)
       .enter()
       .append('g')
       .attr('class', 'row');

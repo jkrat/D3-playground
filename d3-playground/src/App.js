@@ -9,6 +9,7 @@ import HourHeatMap from './components/HeatMap/HourHeatMap';
 import PieChart1 from './components/PieChart/PieChart1';
 import DonutChart1 from './components/PieChart/DonutChart';
 import Grid from './components/Grid';
+import KeyFunction from './components/basic/JoinKeyFunction';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <div className="chart">
           <Grid squares={10} dimensions={440} margin={40} />
         </div>
-        {/* <div className="chart">
+        <div className="chart">
           <DonutChart1 />
         </div>
         <div className="chart">
@@ -40,11 +41,14 @@ function App() {
           <MovingLetters />
         </div>
         <div className="chart">
+          <KeyFunction />
+        </div>
+        <div className="chart">
           <Circles />
         </div>
         <div className="chart">
           <BarChart1 />
-        </div> */}
+        </div>
       </div>
     </>
   );
