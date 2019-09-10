@@ -1,28 +1,29 @@
 import React from 'react';
+import Chart from '../Chart';
 import BarChartSVG from './SVG';
 import BarChartVertical from './Vertical';
-import BarChartPolished from './avcPolished';
+import BarChartPolished from './Polished';
 import VerticalBar from './VerticalBar';
 import AnimatedHorizontal from './AnimatedHorizontalBar';
 
 const index = () => {
   return (
     <>
-      <div className="chart">
+      <Chart title="Animated Horizontal">
         <AnimatedHorizontal />
-      </div>
-      <div className="chart">
+      </Chart>
+      <Chart title="Animated Vertical">
         <VerticalBar />
-      </div>
-      <div className="chart">
+      </Chart>
+      <Chart title="Sorted With Axis">
         <BarChartPolished />
-      </div>
-      <div className="chart">
+      </Chart>
+      <Chart title="SVG Vertical">
         <BarChartVertical />
-      </div>
-      <div className="chart">
+      </Chart>
+      <Chart title="SVG Horizontal">
         <BarChartSVG />
-      </div>
+      </Chart>
     </>
   );
 };
