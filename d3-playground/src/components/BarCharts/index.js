@@ -6,26 +6,24 @@ import BarChartPolished from './Polished';
 import VerticalBar from './VerticalBar';
 import AnimatedHorizontal from './AnimatedHorizontalBar';
 
-const index = () => {
-  return (
-    <>
-      <Chart title="Animated Horizontal">
-        <AnimatedHorizontal />
-      </Chart>
-      <Chart title="Animated Vertical">
-        <VerticalBar />
-      </Chart>
-      <Chart title="Sorted With Axis">
-        <BarChartPolished />
-      </Chart>
-      <Chart title="SVG Vertical">
-        <BarChartVertical />
-      </Chart>
-      <Chart title="SVG Horizontal">
-        <BarChartSVG />
-      </Chart>
-    </>
-  );
-};
+const index = () => (
+  <>
+    <Chart title="Animated Horizontal">
+      <AnimatedHorizontal />
+    </Chart>
+    <Chart title="Animated Vertical">
+      <VerticalBar />
+    </Chart>
+    <Chart title="Sorted With Axis">
+      <BarChartPolished />
+    </Chart>
+    <Chart title="SVG Vertical">
+      <BarChartVertical />
+    </Chart>
+    <Chart title="SVG Horizontal">
+      <BarChartSVG />
+    </Chart>
+  </>
+);
 
 export default index;

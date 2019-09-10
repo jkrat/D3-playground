@@ -6,6 +6,7 @@ import BarCharts from './BarCharts';
 import GridCharts from './GridCharts';
 import MiscCharts from './MiscCharts';
 import Transitions from './Transitions';
+import Current from './Current';
 
 function selectType(layout) {
   switch (layout) {
@@ -22,14 +23,14 @@ function selectType(layout) {
     case 'Transition':
       return Transitions;
     default:
-      return null;
+      return Current;
   }
 }
 
 const TypeSelect = ({ type, ...restProps }) => {
   const Type = selectType(type);
 
-  return <>{type && <Type {...restProps} />}</>;
+  return <>{<Type {...restProps} />}</>;
 };
 
 export default TypeSelect;
