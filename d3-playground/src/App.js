@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import TypeSelect from './components/TypeSelect';
 import BarChart1 from './components/BarChart1';
 import Circles from './components/Circles';
 import AnimatedHorizontalBar from './components/transitions/AnimatedHorizontalBar';
@@ -12,13 +13,24 @@ import Grid from './components/Grid';
 import KeyFunction from './components/basic/JoinKeyFunction';
 
 function App() {
+  const [chartType, setChartType] = useState(null);
+
+  const handleChange = e => {
+    setChartType(e.target.value);
+  };
+
   return (
     <>
       <div className="App-header">
-        <h5>D3 playground</h5>
         <h5>Home</h5>
+        <h5>D3 playground</h5>
+        <select onChange={handleChange}>
+          <option>Pie</option>
+          <option>Line</option>
+        </select>
       </div>
       <div className="App-body">
+        <TypeSelect type={chartType} />
         <div className="chart">
           <Grid squares={10} dimensions={440} margin={40} />
         </div>
