@@ -18,13 +18,13 @@ const points = [
 
 const x = d3
   .scaleLinear()
-  .domain([0, 600])
-  .range([0, width]);
+  .domain([0, d3.max(points, d => d[0])])
+  .range([0, width - margin.right]);
 
 const y = d3
   .scaleLinear()
-  .domain([0, 110])
-  .range([0, height]);
+  .domain([0, d3.max(points, d => d[1])])
+  .range([height - margin.bottom - margin.top, margin.bottom]);
 
 const lineGenerator = d3
   .line()
@@ -32,7 +32,14 @@ const lineGenerator = d3
   .y(d => y(d[1]))
   .curve(d3.curveCardinal);
 
+const areaGenerator = d3
+  .area()
+  .x(d => x(d[0]))
+  .y0(y(0))
+  .y1(d => y(d[1]));
+
 const pathData = lineGenerator(points);
+const areaData = areaGenerator(points);
 
 const StaticArea = () => {
   useEffect(() => {
@@ -45,9 +52,14 @@ const StaticArea = () => {
     chart
       .append('path')
       .attr('d', pathData)
-      .attr('stroke', 'steelblue')
+      .attr('stroke', 'black')
       .attr('fill', 'none')
       .attr('stroke-width', 1.5);
+
+    chart
+      .append('path')
+      .attr('d', areaData)
+      .attr('fill', 'steelblue');
 
     chart
       .selectAll('circle')

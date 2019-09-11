@@ -8,7 +8,14 @@ const height = 500 - margin.top - margin.bottom;
 
 let chart;
 
-const points = [[0, 80], [100, 100], [200, 30], [300, 0], [400, 90], [500, 80]];
+const points = [
+  [0, 80],
+  [100, 100],
+  [200, 30],
+  [300, 10],
+  [400, 90],
+  [500, 80],
+];
 
 const x = d3
   .scaleLinear()
@@ -18,7 +25,7 @@ const x = d3
 const y = d3
   .scaleLinear()
   .domain([0, d3.max(points, d => d[1])])
-  .range([margin.bottom, height - margin.bottom - margin.top]);
+  .range([height - margin.bottom - margin.top, margin.bottom]);
 
 const lineGenerator = d3
   .line()
