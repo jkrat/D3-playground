@@ -51,7 +51,7 @@ const AnimatedHorizontalBar = () => {
       .attr('class', 'domain')
       .attr('y2', height);
 
-    menu = d3.select('#menu select').on('change', change);
+    menu = d3.select('#menu select').on('change', redraw);
 
     menu
       .selectAll('option')
@@ -63,12 +63,6 @@ const AnimatedHorizontalBar = () => {
     menu.property('value', '18 to 24 Years');
 
     redraw();
-
-    function change() {
-      d3.transition()
-        .duration(2500)
-        .each(redraw);
-    }
   });
 
   function redraw() {
