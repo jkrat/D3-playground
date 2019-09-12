@@ -5,11 +5,15 @@ import BarChartVertical from './Vertical';
 import BarChartPolished from './Polished';
 import VerticalBar from './VerticalBar';
 import AnimatedHorizontal from './AnimatedHorizontalBar';
+import HorizontalStack from './HorizontalStack';
 
 const index = () => (
   <>
     <Chart title="Animated Horizontal">
       <AnimatedHorizontal />
+    </Chart>
+    <Chart title="Horizontal Stack">
+      <HorizontalStack />
     </Chart>
     <Chart title="Animated Vertical">
       <VerticalBar />

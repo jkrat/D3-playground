@@ -2,7 +2,6 @@ import React from 'react';
 import Chart from '../Chart';
 import MovingLetters from './MovingLetters';
 import JoinKeyFunction from './JoinKeyFunction';
-import Circles from './Circles';
 
 const index = () => (
   <>
@@ -11,9 +10,6 @@ const index = () => (
     </Chart>
     <Chart title="Adding Elements">
       <JoinKeyFunction />
-    </Chart>
-    <Chart title="Circles">
-      <Circles />
     </Chart>
   </>
 );

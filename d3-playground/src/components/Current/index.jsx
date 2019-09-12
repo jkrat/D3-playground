@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 import Chart from '../Chart';
-import StaticLine from '../LineCharts/staticLine';
+import HorizontalStack from '../BarCharts/HorizontalStack';
 
 const Current = () => {
   const [data, setData] = useState();
 
   return (
     <Chart title="Current">
-      <StaticLine />
+      <HorizontalStack />
     </Chart>
   );
 };
