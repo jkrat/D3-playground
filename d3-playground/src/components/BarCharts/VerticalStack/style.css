@@ -1,0 +1,14 @@
+.VSaxis text {
+  font: 10px sans-serif;
+}
+
+.VSaxis line,
+.VSaxis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.VSaxis--x path {
+  display: none;
+}

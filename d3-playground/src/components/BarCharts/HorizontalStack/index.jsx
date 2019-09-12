@@ -35,7 +35,7 @@ const HorizontalStack = () => {
       .attr('width', width)
       .attr('height', height);
 
-    const bar = chart
+    const layer = chart
       .selectAll('g.series')
       .data(stackedSeries)
       .enter()
@@ -43,7 +43,7 @@ const HorizontalStack = () => {
       .classed('series', true)
       .style('fill', (d, i) => colors[i]);
 
-    bar
+    layer
       .selectAll('rect')
       .data(d => d)
       .enter()

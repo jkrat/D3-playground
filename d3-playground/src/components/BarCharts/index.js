@@ -6,11 +6,15 @@ import BarChartPolished from './Polished';
 import VerticalBar from './VerticalBar';
 import AnimatedHorizontal from './AnimatedHorizontalBar';
 import HorizontalStack from './HorizontalStack';
+import VerticalStack from './VerticalStack';
 
 const index = () => (
   <>
     <Chart title="Animated Horizontal">
       <AnimatedHorizontal />
+    </Chart>
+    <Chart title="Horizontal Stack">
+      <VerticalStack />
     </Chart>
     <Chart title="Horizontal Stack">
       <HorizontalStack />
