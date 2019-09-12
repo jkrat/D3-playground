@@ -5,19 +5,26 @@ const width = 960;
 const height = Math.min(width, 500);
 const radius = height / 2;
 
-const color = d3.scaleOrdinal(d3.schemeCategory10);
+const color = d3.scaleOrdinal(['#bab0ab'].concat(d3.schemeTableau10));
 let chart;
 
-const arc = d3
+const pieGenerator = values =>
+  d3
+    .pie()
+    .sort(null)
+    .value(d => d)(values);
+
+const arcGenerator = d3
   .arc()
   .innerRadius(radius * 0.67)
   .outerRadius(radius - 1);
 
-const DynamicDonut = ({ title, data }) => {
-  const pieGenerator = d3
-    .pie()
-    .sort(null)
-    .value(d => d)(data);
+const DynamicDonut = ({ data }) => {
+  const initialData = [];
+  initialData.push(1);
+  for (let i = 0; i < data.length; i++) {
+    initialData.push(0);
+  }
 
   useEffect(() => {
     chart = d3
@@ -27,14 +34,18 @@ const DynamicDonut = ({ title, data }) => {
   }, []);
 
   useEffect(() => {
-    createChart();
+    createChart(initialData);
+    setTimeout(function() {
+      const chartData = [0].concat(data);
+      createChart(chartData);
+    }, 1);
   }, [data]);
 
-  function createChart() {
+  function createChart(dataSet) {
     const t = d3.transition().duration(1000);
-    const arcs = pieGenerator;
+    const arcs = pieGenerator(dataSet);
     const path = chart
-      .datum(data)
+      .datum(dataSet)
       .selectAll('path')
       .data(arcs);
 
@@ -43,7 +54,7 @@ const DynamicDonut = ({ title, data }) => {
         enter
           .append('path')
           .attr('fill', (d, i) => color(i))
-          .attr('d', arc)
+          .attr('d', arcGenerator)
           .each(function(d) {
             this.current = d;
           })
@@ -56,7 +67,7 @@ const DynamicDonut = ({ title, data }) => {
   function arcTween(a) {
     const i = d3.interpolate(this._current, a);
     this._current = i(0);
-    return t => arc(i(t));
+    return t => arcGenerator(i(t));
   }
 
   return <svg id="DynamicDonut" />;

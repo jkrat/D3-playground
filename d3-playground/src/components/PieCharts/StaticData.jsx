@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 import Chart from '../Chart';
-import DynamicDonut from './DynamicDonut';
+import StaticDonut from './StaticDonut';
 
 // Make sure data set defaults to 0 for missing values
 const dataSet = {
@@ -12,7 +12,7 @@ const dataSet = {
 };
 const dataTypes = d3.keys(dataSet);
 
-const Data = () => {
+const StaticData = () => {
   const [data, setData] = useState({
     title: dataTypes[0],
     data: dataSet[dataTypes[0]],
@@ -25,7 +25,7 @@ const Data = () => {
   }
 
   useEffect(() => {
-    const menu = d3.select('#bar1Menu select').on('change', change);
+    const menu = d3.select('#staticMenu select').on('change', change);
 
     menu
       .selectAll('option')
@@ -38,15 +38,15 @@ const Data = () => {
   }, []);
 
   return (
-    <Chart title="Dynamic Donut">
-      <p id="bar1Menu">
+    <Chart title="Static Donut">
+      <p id="staticMenu">
         <b>Choose data</b>
         <br />
         <select></select>
       </p>
-      <DynamicDonut title={data.title} data={data.data} />
+      <StaticDonut title={data.title} data={data.data} />
     </Chart>
   );
 };
 
-export default Data;
+export default StaticData;
