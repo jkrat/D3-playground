@@ -3,7 +3,7 @@ import './App.css';
 import TypeSelect from './components/TypeSelect';
 
 function App() {
-  const [chartType, setChartType] = useState('Current');
+  const [chartType, setChartType] = useState('Pie');
 
   const handleChange = e => {
     setChartType(e.target.value);

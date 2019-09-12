@@ -7,13 +7,17 @@ import VerticalBar from './VerticalBar';
 import AnimatedHorizontal from './AnimatedHorizontalBar';
 import HorizontalStack from './HorizontalStack';
 import VerticalStack from './VerticalStack';
+import PositiveNegative from './PositiveNegative';
 
 const index = () => (
   <>
     <Chart title="Animated Horizontal">
       <AnimatedHorizontal />
     </Chart>
-    <Chart title="Horizontal Stack">
+    <Chart title="Positive Negative">
+      <PositiveNegative />
+    </Chart>
+    <Chart title="Vertivcal Stack">
       <VerticalStack />
     </Chart>
     <Chart title="Horizontal Stack">

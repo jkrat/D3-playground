@@ -9,7 +9,7 @@ const height = 500 - margin.top - margin.bottom;
 const data = [
   { name: 'A', value: -15 },
   { name: 'B', value: 5 },
-  { name: 'C', value: 10 },
+  { name: 'A', value: 10 },
   { name: 'D', value: -20 },
   { name: 'E', value: -5 },
   { name: 'F', value: 5 },
@@ -21,15 +21,14 @@ const data = [
 
 const x = d3
   .scaleBand()
-  .rangeRound([0, width])
-  .paddingInner(0.01)
-  .paddingOuter(0.1);
+  .rangeRound([margin.left, width - margin.right])
+  .paddingInner(0.05)
+  .paddingOuter(0.3);
 
-const y = d3.scaleLinear().range([20, height - 20]);
+const y = d3.scaleLinear().range([height - margin.bottom, margin.top]);
 
 const xAxis = d3.axisBottom(x);
-
-const yAxis = d3.axisLeft(y).tickSize(6, 0);
+const yAxis = d3.axisRight(y).tickSize(width - margin.left - margin.right);
 
 const PositiveNegative = () => {
   useEffect(() => {
@@ -44,6 +43,31 @@ const PositiveNegative = () => {
     y.domain(d3.extent(data, d => d.value));
 
     chart
+      .append('g')
+      .classed('y PNaxis', true)
+      .attr('transform', `translate(${margin.left},0)`)
+      .call(yAxis)
+      .call(g => g.select('.domain').remove())
+      .call(g =>
+        g
+          .selectAll('.tick:not(:first-of-type) line')
+          .attr('stroke-opacity', 0.1)
+      )
+      .call(g =>
+        g
+          .selectAll('.tick text')
+          .attr('x', 4)
+          .attr('dy', -4)
+      );
+
+    chart
+      .append('g')
+      .classed('x PNaxis', true)
+      .attr('transform', `translate(0, ${height - margin.bottom})`)
+      .call(xAxis)
+      .call(g => g.select('.domain').remove());
+
+    chart
       .selectAll('.bar')
       .data(data)
       .enter()
@@ -51,21 +75,9 @@ const PositiveNegative = () => {
       .classed('bar bar--negative', d => d.value < 0)
       .classed('bar bar--positive', d => d.value > 0)
       .attr('x', d => x(d.name))
-      .attr('y', d => y(Math.min(0, -d.value)))
+      .attr('y', d => y(Math.max(0, d.value)))
       .attr('width', x.bandwidth())
       .attr('height', d => Math.abs(y(d.value) - y(0)));
-
-    chart
-      .append('g')
-      .classed('x PNaxis', true)
-      .attr('transform', `translate(0, ${height})`)
-      .call(xAxis);
-
-    chart
-      .append('g')
-      .classed('y PNaxis', true)
-      .attr('transform', `translate(${x(0)},0)`)
-      .call(yAxis);
   });
   return <svg id="PositiveNegative"></svg>;
 };

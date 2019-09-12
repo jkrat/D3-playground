@@ -1,9 +1,9 @@
 .bar--positive {
-  fill: steelblue;
+  fill: rgb(52, 138, 18);
 }
 
 .bar--negative {
-  fill: brown;
+  fill: rgb(196, 76, 76);
 }
 
 .PNaxis text {

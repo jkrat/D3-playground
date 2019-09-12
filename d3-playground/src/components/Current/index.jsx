@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 import Chart from '../Chart';
-import PositiveNegative from '../BarCharts/PositiveNegative';
+import Grouped from '../BarCharts/Grouped';
 
 const Current = () => {
   const [data, setData] = useState();
 
   return (
     <Chart title="Current">
-      <PositiveNegative />
+      <Grouped />
     </Chart>
   );
 };
