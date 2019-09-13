@@ -4,41 +4,23 @@ import Chart from '../../Chart';
 import Bullet from './index';
 import { dataSet } from './data';
 
-const dataTypes = d3.keys(dataSet);
-
 const BulletData = () => {
-  const [data, setData] = useState({
-    title: dataTypes[0],
-    data: dataSet[dataTypes[0]],
-  });
+  const [data, setData] = useState(dataSet.set1);
 
-  function change() {
-    const { value } = this;
-    const newData = { title: value, data: dataSet[value] };
-    setData(newData);
+  function goSet1() {
+    setData(dataSet.set1);
   }
-
-  useEffect(() => {
-    const menu = d3.select('#BulletMenu select').on('change', change);
-
-    menu
-      .selectAll('option')
-      .data(dataTypes)
-      .enter()
-      .append('option')
-      .text(d => d);
-
-    menu.property('value', dataTypes[0]);
-  }, []);
+  function goSet2() {
+    setData(dataSet.set2);
+  }
 
   return (
     <Chart title="Bullet Horizontal">
       <p id="BulletMenu">
-        <b>Choose data</b>
-        <br />
-        <select></select>
+        <button onClick={goSet1}>set 1</button>
+        <button onClick={goSet2}>set 2</button>
       </p>
-      <Bullet title={data.title} data={data.data} />
+      <Bullet data={data} />
     </Chart>
   );
 };

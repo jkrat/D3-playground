@@ -7,31 +7,33 @@ const margin = { top: 5, right: 40, bottom: 20, left: 120 };
 const width = 800 - margin.left - margin.right;
 const height = 50 - margin.top - margin.bottom;
 
+let chart;
+
 const BulletChart = ({ data }) => {
-  console.log(data);
+  const dataSet = [...data];
+
   const bullet = d4
     .bullet()
     .width(width)
     .height(height);
 
   useEffect(() => {
-    const chart = d3
+    chart = d3
       .select('#BulletChart')
       .selectAll('svg')
-      .data(data)
+      .data(dataSet)
       .enter()
       .append('svg')
       .attr('class', 'bullet')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
-      .attr('transform', `translate(${margin.left},${margin.top})`)
-      .call(bullet);
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const title = chart
       .append('g')
       .style('text-anchor', 'end')
-      .attr('transform', 'translate(-6,' + height / 2 + ')');
+      .attr('transform', `translate(-6,${height / 2})`);
 
     title
       .append('text')
@@ -43,13 +45,24 @@ const BulletChart = ({ data }) => {
       .attr('class', 'subtitle')
       .attr('dy', '1em')
       .text(d => d.subtitle);
-  }, [data]);
+  }, []);
 
-  return (
-    <>
-      <div id="BulletChart"></div>
-    </>
-  );
+  useEffect(() => {
+    createChart();
+  }, [dataSet]);
+
+  function createChart() {
+    chart.datum(update);
+    chart.call(bullet);
+  }
+
+  function update(d, i) {
+    d.ranges = dataSet[i].ranges;
+    d.markers = dataSet[i].markers;
+    d.measures = dataSet[i].measures;
+    return d;
+  }
+  return <div id="BulletChart"></div>;
 };
 
 export default BulletChart;

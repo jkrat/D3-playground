@@ -2,7 +2,7 @@ export const dataSet = {
   set1: [
     {
       title: 'Revenue',
-      subtitle: 'US$, in thousands',
+      subtitle: 'Euro, in thousands',
       ranges: [100, 350, 500],
       measures: [390],
       markers: [410],
