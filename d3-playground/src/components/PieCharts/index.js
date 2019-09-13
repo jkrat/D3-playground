@@ -9,7 +9,7 @@ const index = () => (
   <>
     <DynamicData />
     <StaticData />
-    <Chart title="labeled Donut">
+    <Chart title="Labeled Donut">
       <BasicDonut />
     </Chart>
     <Chart title="Labeled Pie">
