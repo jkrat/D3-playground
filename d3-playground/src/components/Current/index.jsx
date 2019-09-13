@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 import Chart from '../Chart';
-import Grouped from '../BarCharts/Grouped';
+import BulletData from '../BarCharts/BulletChart/BulletData';
 
 const Current = () => {
   const [data, setData] = useState();
 
-  return (
-    <Chart title="Current">
-      <Grouped />
-    </Chart>
-  );
+  return <BulletData />;
 };
 
 export default Current;
